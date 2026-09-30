@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FCFCFA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0A0A" media="(prefers-color-scheme: dark)">
+<title>Gian Klain</title>
+<meta name="description" content="Are we ready for a technical singularity? A question we are not asked. Gian Klain, Zürich.">
+<meta property="og:title" content="Gian Klain">
+<meta property="og:description" content="Are we ready for a technical singularity? A question we are not asked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FCFCFA;
+    --ink: #161616;
+    --ink-dim: rgba(22, 22, 22, .62);
+    --line: rgba(22, 22, 22, .22);
+    --serif: "Instrument Serif", "Times New Roman", serif;
+    --sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--bg);
+    color: var(--ink);
+    position: relative;
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    padding: clamp(1.25rem, 4vw, 3.5rem);
+  }
+  main { min-height: calc(100vh - clamp(2.5rem, 8vw, 7rem)); min-height: calc(100dvh - clamp(2.5rem, 8vw, 7rem)); }
+  /* paper texture */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .55;
+    mix-blend-mode: multiply;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='g' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .33  0 0 0 0 .3  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)' opacity='.16'/></svg>"),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='700' height='700'><filter id='f' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='.012 .04' numOctaves='2' seed='11' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .48  0 0 0 0 .44  0 0 0 .8 0'/></filter><rect width='100%25' height='100%25' filter='url(%23f)' opacity='.12'/></svg>");
+  }
+  body > * { position: relative; z-index: 1; }
+
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: end;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(4.5rem, 15vw, 13rem);
+    line-height: .86;
+    letter-spacing: -.03em;
+    animation: arrive 1.6s cubic-bezier(.2, .7, .2, 1) both;
+  }
+  h1 span { display: block; }
+  h1 .last { font-style: italic; padding-left: .5em; }
+
+  @keyframes arrive {
+    from { opacity: 0; filter: blur(14px); letter-spacing: .04em; }
+    to   { opacity: 1; filter: blur(0);    letter-spacing: -.03em; }
+  }
+
+  .side { max-width: 30rem; padding-bottom: .6rem; }
+  .role { margin: 0 0 2.25rem; color: var(--ink-dim); }
+
+  ul.work { list-style: none; margin: 0; padding: 0; }
+  ul.work li { border-top: 1px solid var(--line); }
+  ul.work li:last-child { border-bottom: 1px solid var(--line); }
+  ul.work a {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: .9rem 0;
+    text-decoration: none;
+  }
+  ul.work strong { font-weight: 500; }
+  ul.work small { color: var(--ink-dim); font-size: .95rem; }
+  ul.work a:hover strong, ul.work a:focus-visible strong { text-decoration: underline; text-underline-offset: .2em; }
+
+  .studio {
+    margin: clamp(3rem, 8vw, 7rem) 0 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: end;
+  }
+  .studio h2, .signup h2 {
+    margin: 0 0 1rem;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: .95;
+    letter-spacing: -.02em;
+  }
+  .studio p { margin: 0; color: var(--ink-dim); }
+  .studio figure { margin: 0; mix-blend-mode: multiply; }
+  .studio img {
+    display: block;
+    width: 100%;
+    max-width: 34rem;
+    height: auto;
+    margin-left: auto;
+  }
+
+  .signup {
+    margin-top: clamp(3rem, 8vw, 7rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: start;
+  }
+  .signup p { margin: 0; color: var(--ink-dim); max-width: 24rem; }
+  .form-wrap {
+    background: #fff;
+    color: #1b1b22;
+    border: 1px solid var(--line);
+    min-height: 26rem;
+  }
+  .form-wrap iframe {
+    display: block;
+    width: 100%;
+    height: 40rem;
+    border: 0;
+  }
+  .form-wrap .empty { padding: 2rem; margin: 0; color: #55555f; }
+
+  footer {
+    margin-top: clamp(2.5rem, 7vw, 5rem);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 2rem;
+    justify-content: space-between;
+    color: var(--ink-dim);
+    font-size: .95rem;
+  }
+
+  @media (max-width: 760px) {
+    main { grid-template-columns: 1fr; align-items: start; }
+    .signup, .studio { grid-template-columns: 1fr; }
+    .studio img { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    h1 { animation: none; }
+  }
+
+  /* follows the visitor's system: white by day, black by night */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0A0A0A;
+      --ink: #F4F4F1;
+      --ink-dim: rgba(244, 244, 241, .62);
+      --line: rgba(244, 244, 241, .25);
+    }
+    body::before { mix-blend-mode: screen; opacity: 1; }
+    .studio figure { mix-blend-mode: screen; }
+    .studio img { filter: invert(1); }
+    .form-wrap { border-color: transparent; }
+  }
+
+</style>
+</head>
+<body>
+  <main>
+    <h1 aria-label="Gian Klain">
+      <span>Gian</span>
+      <span class="last">Klain</span>
+    </h1>
+
+    <div class="side">
+      <p class="role">Are we ready for a technical singularity?<br>A question we are not asked.</p>
+
+      <ul class="work">
+        <li>
+          <a href="https://singularityishere.org">
+            <strong>SingularityIsHere</strong>
+            <small>Art and digital culture.</small>
+          </a>
+        </li>
+        <li>
+          <a href="https://qstar-research.com">
+            <strong>QSTAR Research</strong>
+            <small>The Lab. Speculative scenarios for ASI.</small>
+          </a>
+        </li>
+        <li>
+          <!-- TODO: point to the Shan Deliar page or SIOH subpage -->
+          <a href="https://singularityishere.org">
+            <strong>Shan Deliar</strong>
+            <small>An experimental project. AI's art practice.</small>
+          </a>
+        </li>
+        <li>
+          <!-- TODO: add link once the project page is live -->
+          <a href="https://singularityishere.org">
+            <strong>Humans in the Loop</strong>
+            <small>The Bergmann chronicles.</small>
+          </a>
+        </li>
+        <li>
+          <a href="https://gianklain.substack.com">
+            <strong>Writing</strong>
+            <small>Substack.</small>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <section class="studio">
+    <div>
+      <h2>Studio</h2>
+      <p>Zürich.<br>Open Wednesday and Thursday, 10 am to 5 pm.</p>
+    </div>
+    <figure>
+      <img src="armchair.jpg" alt="Gian Klain in a leather armchair wearing a VR headset, a glass in one hand">
+    </figure>
+  </section>
+
+  <section class="signup" id="signup">
+    <div>
+      <h2>Sign up</h2>
+      <p>News on shows, experiments and new work. Rarely, and only when there is something to say.</p>
+    </div>
+    <div class="form-wrap" id="form-wrap">
+      <p class="empty" id="form-empty">The sign-up form appears here once the Google Form link is added.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Gian Klain</span>
+    <span>Zürich</span>
+  </footer>
+
+  <script>
+    // Paste your Google Form embed URL here. In Google Forms: Send → the <> tab → copy the src="…" value.
+    var FORM_URL = "";
+    if (FORM_URL) {
+      var f = document.createElement("iframe");
+      f.src = FORM_URL;
+      f.title = "Sign-up form";
+      f.loading = "lazy";
+      document.getElementById("form-wrap").replaceChildren(f);
+    }
+  </script>
+</body>
+</html>
