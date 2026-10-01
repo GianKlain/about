@@ -7,9 +7,9 @@
 <meta name="theme-color" content="#FCFCFA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0A0A0A" media="(prefers-color-scheme: dark)">
 <title>Gian Klain</title>
-<meta name="description" content="Are we ready for a technical singularity? A question we are not asked. Gian Klain, Zürich.">
+<meta name="description" content="Gian Klain. My journey into the depth of reality. Current show: Being There, Coal Mine.">
 <meta property="og:title" content="Gian Klain">
-<meta property="og:description" content="Are we ready for a technical singularity? A question we are not asked.">
+<meta property="og:description" content="My journey into the depth of reality.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -121,6 +121,7 @@
     margin-left: auto;
   }
 
+  .signup[hidden] { display: none; }
   .signup {
     margin-top: clamp(3rem, 8vw, 7rem);
     display: grid;
@@ -143,6 +144,25 @@
   }
   .form-wrap .empty { padding: 2rem; margin: 0; color: #55555f; }
 
+  .welcome {
+    margin: 0 0 1.5rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+  a.now {
+    display: block;
+    margin: 0 0 2.5rem;
+    text-decoration: none;
+  }
+  a.now span { display: block; }
+  a.now .label { color: var(--ink-dim); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .35rem; }
+  a.now .title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1; letter-spacing: -.01em; }
+  a.now .sub { margin-top: .5rem; }
+  a.now .where { margin-top: .35rem; color: var(--ink-dim); font-size: .95rem; }
+  a.now:hover .title, a.now:focus-visible .title { text-decoration: underline; text-underline-offset: .12em; text-decoration-thickness: 1px; }
+
   footer {
     margin-top: clamp(2.5rem, 7vw, 5rem);
     display: flex;
@@ -152,6 +172,11 @@
     color: var(--ink-dim);
     font-size: .95rem;
   }
+
+  .social { display: flex; gap: .25rem; margin: -.6rem -.6rem -.6rem 0; }
+  .social a { display: inline-flex; padding: .6rem; color: var(--ink); opacity: .75; transition: opacity .2s; }
+  .social a:hover, .social a:focus-visible { opacity: 1; }
+  footer { align-items: center; }
 
   @media (max-width: 760px) {
     main { grid-template-columns: 1fr; align-items: start; }
@@ -186,7 +211,15 @@
     </h1>
 
     <div class="side">
-      <p class="role">Are we ready for a technical singularity?<br>A question we are not asked.</p>
+      <a class="now" href="https://saalblatt.ch">
+        <span class="label">Current show</span>
+        <span class="title">Being There</span>
+        <span class="sub">A meditation on the ordinary<br>Gian Klain, Photo Experiments, 2019 to 2024</span>
+        <span class="where">Coal Mine, saalblatt.ch</span>
+      </a>
+
+
+      <p class="welcome">My journey into the depth of reality.</p>
 
       <ul class="work">
         <li>
@@ -202,40 +235,33 @@
           </a>
         </li>
         <li>
-          <!-- TODO: point to the Shan Deliar page or SIOH subpage -->
-          <a href="https://singularityishere.org">
+          <a href="https://deliar.org">
             <strong>Shan Deliar</strong>
             <small>An experimental project. AI's art practice.</small>
           </a>
         </li>
         <li>
-          <!-- TODO: add link once the project page is live -->
-          <a href="https://singularityishere.org">
+          <a href="https://deliar.org/#exhibitions">
             <strong>Humans in the Loop</strong>
             <small>The Bergmann chronicles.</small>
           </a>
         </li>
-        <li>
-          <a href="https://gianklain.substack.com">
-            <strong>Writing</strong>
-            <small>Substack.</small>
-          </a>
-        </li>
       </ul>
+
     </div>
   </main>
 
   <section class="studio">
     <div>
       <h2>Studio</h2>
-      <p>Zürich.<br>Open Wednesday and Thursday, 10 am to 5 pm.</p>
+      <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Neue+Hard+14%2C+8005+Z%C3%BCrich">Neue Hard 14<br>8005 Zürich</a><br><br>Open Wednesday and Thursday, 10 am to 5 pm.</p>
     </div>
     <figure>
       <img src="armchair.jpg" alt="Gian Klain in a leather armchair wearing a VR headset, a glass in one hand">
     </figure>
   </section>
 
-  <section class="signup" id="signup">
+  <section class="signup" id="signup" hidden>
     <div>
       <h2>Sign up</h2>
       <p>News on shows, experiments and new work. Rarely, and only when there is something to say.</p>
@@ -247,13 +273,21 @@
 
   <footer>
     <span>Gian Klain</span>
-    <span>Zürich</span>
+    <nav class="social" aria-label="Social">
+      <a href="https://www.instagram.com/gianklain/" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>
+      </a>
+      <a href="https://gianklain.substack.com" aria-label="Substack" title="Substack">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M5 8h14M5 12h14v9l-7-4-7 4z"/></svg>
+      </a>
+    </nav>
   </footer>
 
   <script>
     // Paste your Google Form embed URL here. In Google Forms: Send → the <> tab → copy the src="…" value.
     var FORM_URL = "";
     if (FORM_URL) {
+      document.getElementById("signup").hidden = false;
       var f = document.createElement("iframe");
       f.src = FORM_URL;
       f.title = "Sign-up form";
